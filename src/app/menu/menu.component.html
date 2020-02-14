@@ -1,0 +1,15 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div>
+            <a href="http://localhost:4200/" class="navbar-brand">Todo's Manager</a>
+        </div>
+        <ul class="navbar-nav">
+            <li *ngIf="hardAuth.isUserLoggedIn()"><a routerLink="/welcome/adil.sheikh" class="nav-link">Home</a></li>
+            <li *ngIf="hardAuth.isUserLoggedIn()"><a routerLink="/todos" class="nav-link">Todos</a></li>
+        </ul>
+        <ul class="navbar-nav navbar-collapse justify-content-end">
+            <li *ngIf="!hardAuth.isUserLoggedIn()"><a routerLink="/login" class="nav-link">Login</a></li>
+            <li *ngIf="hardAuth.isUserLoggedIn()"><a routerLink="/logout" class="nav-link">Logout</a></li>
+        </ul>
+    </nav>
+</header>
