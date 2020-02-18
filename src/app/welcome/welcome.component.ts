@@ -9,35 +9,35 @@ import { WelcomeDataService } from '../service/data/welcome-data.service';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-message = "some message"
+message = 'some message';
 userName;
 welcomeMsg;
-//activated route
-  constructor(private actRoute : ActivatedRoute,private beanService : WelcomeDataService) { }
+// activated route
+  constructor(private actRoute: ActivatedRoute, private beanService: WelcomeDataService) { }
 
   ngOnInit() {
-    this.userName = this.actRoute.snapshot.params['name'];
+    this.userName = this.actRoute.snapshot.params.name;
   }
 
-  getMessage(){
+  getMessage() {
     this.beanService.executeHelloWorldBeanService().subscribe(
       response => this.handleSucccessReponse(response),
       error => this.handleErrorReponse(error)
     );
   }
 
-  getMessageWithParam(){
+  getMessageWithParam() {
     this.beanService.executeHelloWorldServiceWithVar(this.userName).subscribe(
       response => this.handleSucccessReponse(response),
       error => this.handleErrorReponse(error)
     );
   }
 
-  handleSucccessReponse(response){
+  handleSucccessReponse(response) {
     this.welcomeMsg = response.msg;
   }
 
-  handleErrorReponse(error){
+  handleErrorReponse(error) {
     this.welcomeMsg = error.error.message;
   }
 }
