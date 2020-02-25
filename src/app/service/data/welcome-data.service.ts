@@ -18,13 +18,13 @@ export class WelcomeDataService {
 
   executeHelloWorldServiceWithVar(name){
 
-    let basicAuthHeader = this.createBasicAuthenticationHttpHeader();
+    let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
 
     let headers = new HttpHeaders({
-      Authorization : basicAuthHeader
+      Authorization : basicAuthHeaderString
     });
 
-    return this.httpservice.get<HelloWorldBean>(`http://localhost:8080/helloWorld/path-variable/${name}`,{headers});
+    return this.httpservice.get<HelloWorldBean>(`http://localhost:8080/helloWorld/path-variable/${name}`, {headers : headers});
   }
 
   createBasicAuthenticationHttpHeader(){
