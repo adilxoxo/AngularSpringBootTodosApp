@@ -29,4 +29,7 @@ export class TodoDataService {
   updateTodo(username, id, todo) {
     return this.httpService.put(`http://localhost:8080/users/${username}/todos/${id}`, todo);
   }
+  //Access to XMLHttpRequest at 'http://localhost:8080/helloWorld/path-variable/adil.sheikh' 
+  //from origin 'http://localhost:4200'
+  // has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
 }
