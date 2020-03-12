@@ -1,5 +1,6 @@
 <h1 >My Todo's</h1>
 <script>alert("0wned")</script>
+<input type="text" [(ngModel)]="filterText" class="form-control" placeholder="Filter List ..."><br>
 <div class="container">
     <div class="alert alert-success" *ngIf="successMsg">{{successMsg}}</div>
     <table class="table">
@@ -13,7 +14,7 @@
             </tr>
         </thead>
         <tbody >
-            <tr *ngFor="let todo of todos">
+            <tr *ngFor="let todo of todos|filterList:filterText">
                 <td>{{todo.description}}</td>
                 <td>{{todo.targetDate | date }}</td>
                 <td>{{todo.done}}</td>
